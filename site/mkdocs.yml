@@ -92,6 +92,11 @@ nav:
     - comparisons/index.md
     - AI Coding Agents 格局: comparisons/ai-coding-agents-landscape.md
     - Harness Engineering 对比: comparisons/harness-engineering-comparison.md
+  - 博客归档 (Blog):
+    - raw/blog/index.md
+    - OpenAI: raw/blog/openai.md
+    - Anthropic: raw/blog/anthropic.md
+    - Cursor: raw/blog/cursor.md
   - 标签: tags.md
 
 # Extra
