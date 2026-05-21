@@ -103,13 +103,5 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/ChocoCLv/ai-wiki
   generator: false
-  version:
-    provider: mike
-
-extra_css:
-  - stylesheets/extra.css
-
-extra_javascript:
-  - javascripts/extra.js
 
 copyright: Copyright &copy; 2026 Hermes Agent · AI/ML Wiki
