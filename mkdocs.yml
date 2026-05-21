@@ -89,6 +89,8 @@ nav:
     - Agent Harness Engineering: concepts/agent-harness-engineering.md
     - Multi-Agent 架构: concepts/multi-agent-architectures.md
     - Self-Driving Codebases: concepts/self-driving-codebases.md
+    - 递归 Planner-Worker: concepts/recursive-planner-worker.md
+    - Feature List vs Symphony: concepts/feature-list-vs-symphony.md
   - 对比 (Comparisons):
     - comparisons/index.md
     - AI Coding Agents 格局: comparisons/ai-coding-agents-landscape.md
