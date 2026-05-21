@@ -48,8 +48,6 @@ plugins:
         - en
         - zh
   - tags
-  - minify:
-      minify_html: true
 
 # Extensions
 markdown_extensions:
