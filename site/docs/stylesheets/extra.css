@@ -1,0 +1,85 @@
+/* ─── 移动端专属优化 ─── */
+
+/* 手机端内容区域大一点 */
+@media screen and (max-width: 76.1875em) {
+  .md-content__inner {
+    padding: 0 0.8rem;
+  }
+}
+
+/* 更小的手机留少点空白 */
+@media screen and (max-width: 480px) {
+  .md-content__inner {
+    padding: 0 0.4rem;
+  }
+  .md-content__inner > :is(h1, h2, h3) {
+    margin-bottom: 0.6em;
+  }
+}
+
+/* 手机端的目录不要左偏 */
+@media screen and (max-width: 76.1875em) {
+  .md-sidebar {
+    margin: 0 auto;
+  }
+  .md-sidebar--primary {
+    width: 14rem;
+  }
+}
+
+/* 代码块手机适配 — 可横向滚动 */
+.highlight {
+  border-radius: 4px;
+}
+@media screen and (max-width: 480px) {
+  pre > code {
+    font-size: 0.7rem;
+  }
+}
+
+/* 正文行高优化 — 移动端更舒适 */
+.md-content {
+  line-height: 1.7;
+}
+
+/* 表格手机端变卡片 — 水平滚动 */
+@media screen and (max-width: 640px) {
+  .md-typeset table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* 手机端标题间距 */
+@media screen and (max-width: 640px) {
+  .md-typeset h1 { font-size: 1.5rem; }
+  .md-typeset h2 { font-size: 1.25rem; }
+  .md-typeset h3 { font-size: 1.1rem; }
+}
+
+/* 小手机右移 搜索栏覆盖图标 */
+.md-search__overlay {
+  background-color: rgba(0,0,0,0.4);
+}
+
+/* 手机上标签按钮更好看 */
+.md-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+}
+.md-tag {
+  font-size: 0.7rem;
+  padding: 0.05rem 0.5rem;
+}
+
+/* 导航搜索框不遮挡展开按钮 */
+.md-header__title {
+  margin-left: 0.4rem;
+}
+
+/* 手机端搜索弹出不要太挤 */
+.md-search__form {
+  border-radius: 0.2rem;
+}
