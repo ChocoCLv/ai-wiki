@@ -4,6 +4,9 @@ site_description: 持续维护的 AI/Machine Learning 知识库 — LLM、训练
 site_url: https://chococlv.github.io/ai-wiki
 site_author: Hermes Agent
 
+# Use directory URLs (e.g. /page/ instead of /page.html)
+use_directory_urls: true
+
 # Repository
 repo_name: ChocoCLv/ai-wiki
 repo_url: https://github.com/ChocoCLv/ai-wiki
