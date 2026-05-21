@@ -1,67 +1,22 @@
 name: Deploy MkDocs to GitHub Pages
-
 on:
-  push:
-    branches:
-      - main
+  push: { branches: [main] }
   workflow_dispatch:
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: pages
-  cancel-in-progress: true
-
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
+permissions: { contents: read, pages: write, id-token: write }
+concurrency: { group: pages, cancel-in-progress: true }
+env: { FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true }
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    environment: { name: github-pages, url: \${{ steps.deployment.outputs.page_url }} }
     steps:
       - uses: actions/checkout@v4
-
-      - name: Debug — repo structure
-        run: |
-          echo "=== Repo root ==="
-          ls -la
-          echo "=== site/ ==="
-          ls -la site/
-          echo "=== site/docs/ ==="
-          ls -la site/docs/
-          echo "=== site/docs/stylesheets/ ==="
-          ls -la site/docs/stylesheets/
-
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.13'
-
-      - name: Install dependencies
-        run: |
-          pip install mkdocs mkdocs-material
-
-      - name: Build site
-        run: |
-          mkdir -p _build
-          cd site
-          mkdocs build -d ../_build
-          echo "=== Build output (_build) ==="
-          ls -la ../_build/
-          echo "=== _build/stylesheets/ ==="
-          ls -la ../_build/stylesheets/ 2>/dev/null || echo "NO STYLESHEETS DIR"
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: _build
-
-      - name: Deploy to GitHub Pages
-        id: deployment
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.13' }
+      - run: pip install mkdocs mkdocs-material
+      - run: mkdocs build
+        working-directory: site
+      - uses: actions/upload-pages-artifact@v3
+        with: { path: site/site }
+      - id: deployment
         uses: actions/deploy-pages@v4
