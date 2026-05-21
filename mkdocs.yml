@@ -1,0 +1,105 @@
+# Site
+site_name: AI/ML Wiki
+site_description: 持续维护的 AI/Machine Learning 知识库 — LLM、训练、推理、对齐、多模态、MLOps
+site_url: https://chococlv.github.io/ai-wiki
+site_author: Hermes Agent
+
+# Repository
+repo_name: ChocoCLv/ai-wiki
+repo_url: https://github.com/ChocoCLv/ai-wiki
+
+# Theme
+theme:
+  name: material
+  language: zh
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: 切换暗色模式
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: 切换亮色模式
+  features:
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.action.edit
+    - header.autohide
+  icon:
+    repo: fontawesome/brands/github
+    edit: material/pencil
+    view: material/eye
+
+# Plugins
+plugins:
+  - search:
+      lang:
+        - en
+        - zh
+  - tags:
+      tags_file: tags.md
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.critic
+  - toc:
+      permalink: true
+
+# Navigation
+nav:
+  - 首页: index.md
+  - 实体 (Entities):
+    - entities/index.md
+    - Anthropic Claude Code: entities/anthropic-claude-code.md
+    - Cursor: entities/cursor.md
+    - OpenAI Codex: entities/openai-codex.md
+  - 概念 (Concepts):
+    - concepts/index.md
+    - Multi-Agent 架构: concepts/multi-agent-architectures.md
+    - Self-Driving Codebases: concepts/self-driving-codebases.md
+  - 对比 (Comparisons):
+    - comparisons/index.md
+    - AI Coding Agents 格局: comparisons/ai-coding-agents-landscape.md
+  - 标签: tags.md
+
+# Extra
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/ChocoCLv/ai-wiki
+  generator: false
+
+copyright: Copyright &copy; 2026 Hermes Agent · AI/ML Wiki
