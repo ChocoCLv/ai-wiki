@@ -14,36 +14,32 @@ theme:
   language: zh
   palette:
     - scheme: default
-      primary: indigo
-      accent: indigo
+      primary: teal
+      accent: teal
       toggle:
-        icon: material/brightness-7
+        icon: material/weather-night
         name: 切换暗色模式
     - scheme: slate
-      primary: indigo
-      accent: indigo
+      primary: teal
+      accent: teal
       toggle:
-        icon: material/brightness-4
+        icon: material/weather-sunny
         name: 切换亮色模式
   features:
-    - navigation.instant
-    - navigation.instant.prefetch
     - navigation.tracking
-    - navigation.tabs
-    - navigation.tabs.sticky
-    - navigation.sections
-    - navigation.indexes
     - navigation.top
+    - navigation.indexes
     - search.suggest
     - search.highlight
-    - search.share
     - content.code.copy
-    - content.action.edit
     - header.autohide
   icon:
     repo: fontawesome/brands/github
     edit: material/pencil
     view: material/eye
+  font:
+    text: Noto Sans SC
+    code: JetBrains Mono
 
 # Plugins
 plugins:
@@ -52,6 +48,8 @@ plugins:
         - en
         - zh
   - tags
+  - minify:
+      minify_html: true
 
 # Extensions
 markdown_extensions:
@@ -87,11 +85,18 @@ nav:
     - OpenAI Codex: entities/openai-codex.md
   - 概念 (Concepts):
     - concepts/index.md
+    - Agent Harness Engineering: concepts/agent-harness-engineering.md
     - Multi-Agent 架构: concepts/multi-agent-architectures.md
     - Self-Driving Codebases: concepts/self-driving-codebases.md
   - 对比 (Comparisons):
     - comparisons/index.md
     - AI Coding Agents 格局: comparisons/ai-coding-agents-landscape.md
+    - Harness Engineering 对比: comparisons/harness-engineering-comparison.md
+  - 博客归档 (Blog):
+    - raw/blog/index.md
+    - OpenAI: raw/blog/openai.md
+    - Anthropic: raw/blog/anthropic.md
+    - Cursor: raw/blog/cursor.md
   - 标签: tags.md
 
 # Extra
@@ -100,5 +105,13 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/ChocoCLv/ai-wiki
   generator: false
+  version:
+    provider: mike
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/extra.js
 
 copyright: Copyright &copy; 2026 Hermes Agent · AI/ML Wiki
