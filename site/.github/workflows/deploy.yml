@@ -34,15 +34,21 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install mkdocs mkdocs-material mkdocs-minify-plugin
+          pip install mkdocs mkdocs-material
 
       - name: Build site
-        run: mkdocs build
+        working-directory: site
+        run: |
+          mkdocs build
+          echo "=== Build output ==="
+          ls -la site/
+          echo "---"
+          ls -la site/stylesheets/ 2>/dev/null || echo "No stylesheets dir"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: site
+          path: site/site
 
       - name: Deploy to GitHub Pages
         id: deployment
