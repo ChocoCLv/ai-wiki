@@ -27,6 +27,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Debug — repo structure
+        run: |
+          echo "=== Repo root ==="
+          ls -la
+          echo "=== site/ ==="
+          ls -la site/
+          echo "=== site/docs/ ==="
+          ls -la site/docs/
+          echo "=== site/docs/stylesheets/ ==="
+          ls -la site/docs/stylesheets/
+
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
@@ -37,18 +48,19 @@ jobs:
           pip install mkdocs mkdocs-material
 
       - name: Build site
-        working-directory: site
         run: |
-          mkdocs build
-          echo "=== Build output ==="
-          ls -la site/
-          echo "---"
-          ls -la site/stylesheets/ 2>/dev/null || echo "No stylesheets dir"
+          mkdir -p _build
+          cd site
+          mkdocs build -d ../_build
+          echo "=== Build output (_build) ==="
+          ls -la ../_build/
+          echo "=== _build/stylesheets/ ==="
+          ls -la ../_build/stylesheets/ 2>/dev/null || echo "NO STYLESHEETS DIR"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: site/site
+          path: _build
 
       - name: Deploy to GitHub Pages
         id: deployment
