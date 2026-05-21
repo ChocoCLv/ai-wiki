@@ -4,10 +4,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'docs/**'
-      - 'mkdocs.yml'
-      - 'overrides/**'
   workflow_dispatch:
 
 permissions:
@@ -19,9 +15,15 @@ concurrency:
   group: pages
   cancel-in-progress: true
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
 
@@ -43,4 +45,5 @@ jobs:
           path: site
 
       - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v4

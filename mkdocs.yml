@@ -51,8 +51,7 @@ plugins:
       lang:
         - en
         - zh
-  - tags:
-      tags_file: tags.md
+  - tags
 
 # Extensions
 markdown_extensions:
