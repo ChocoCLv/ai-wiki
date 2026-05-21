@@ -48,8 +48,6 @@ plugins:
         - en
         - zh
   - tags
-  - minify:
-      minify_html: true
 
 # Extensions
 markdown_extensions:
@@ -105,8 +103,6 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/ChocoCLv/ai-wiki
   generator: false
-  version:
-    provider: mike
 
 extra_css:
   - stylesheets/extra.css
